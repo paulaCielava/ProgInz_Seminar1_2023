@@ -66,6 +66,12 @@ public class FirstController {
  	}
 	
 	//TODO kotrolieri, kas atgriž visus produktus 
+	@GetMapping("/allproducts") //localhost:8080/allproducts
+	public String allProductsFunc (Model model) {
+		model.addAttribute("myAllProducts", allProducts);
+		return "allProduct-page";
+	}
+	
 	//TODO uztaisit html lapu, kas var visus produktus attelot
 	
 	
