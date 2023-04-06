@@ -64,12 +64,14 @@ public class FirstController {
 		}
 		return "error-page";  //paradus error-page.html lapu
  	}
-	 
+	
+	//TODO kotrolieri, kas atgriž visus produktus 
+	//TODO uztaisit html lapu, kas var visus produktus attelot
+	
+	
+	
+	
 	//TODO kontrolieri, kas izfiltrē visus produktus kuru cena ir mazāka par 2e
-	
-	
-	
-	
 	
 	
 	
