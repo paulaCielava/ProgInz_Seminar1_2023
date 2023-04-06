@@ -1,5 +1,6 @@
 package lv.venta.controllers;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -71,14 +72,24 @@ public class FirstController {
 		model.addAttribute("myAllProducts", allProducts);
 		return "allProduct-page";
 	}
-	
 	//TODO uztaisit html lapu, kas var visus produktus attelot
 	
-	
-	
-	
-	//TODO kontrolieri, kas izfiltrē visus produktus kuru cena ir mazāka par 2e
-	
+	//TODO kontrolieri, kas izfiltrē visus produktus kuru cena ir mazāka par padoto vērtību
+	@GetMapping ("/allproducts/{price}") //localhost:8080/allproducts/price
+	public String productsByPriceFunc(@PathVariable("price") float price, Model model)  {
+		if (price > 0) {
+			ArrayList<Product> allProductsWithPriceLess = new ArrayList<>();
+			for (Product temp : allProducts) {
+				if(temp.getPrice() < price) {
+					allProductsWithPriceLess.add(temp);
+				}
+			}
+			model.addAttribute("myAllProducts", allProductsWithPriceLess);
+			return "allProduct-page";
+		}
+		
+		return "error-page";  //paradus error-page.html lapu
+	}
 	
 	
 	
